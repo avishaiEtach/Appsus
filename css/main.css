@@ -1,1 +1,5 @@
 @import '../css/cmps/app-header.css';
+
+.mail-list{
+    height:400px;
+}
