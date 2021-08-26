@@ -11,11 +11,13 @@ export class NoteTxt extends React.Component {
         this.setState(prevState => ({ noteStyle: { ...prevState.noteStyle, [field]: value } }))
     }
 
-    onDelete = () => {
-        notesService.DeleteNote(this.props.note.id)
-            .then(() => this.props.loadTypes())
-    }
 
+    onDelete = () => {
+        if (this.props.note.id) {
+            notesService.DeleteNote(this.props.note.id)
+                .then(() => this.props.loadNots())
+        }
+    }
 
     render() {
         const { noteStyle } = this.state

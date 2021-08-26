@@ -11,11 +11,11 @@ export class NotesPreview extends React.Component {
     loadTypes = () => {
         switch (this.props.note.type) {
             case 'note-txt':
-                return <NoteTxt note={this.props.note} loadTypes={this.loadTypes} />
+                return <NoteTxt note={this.props.note} loadNots={this.props.loadNots} />
             case 'note-img':
-                return <NoteImg note={this.props.note} />
+                return <NoteImg note={this.props.note} loadNots={this.props.loadNots} />
             case 'note-todos':
-                return <NoteToDo note={this.props.note} />
+                return <NoteToDo note={this.props.note} loadNots={this.props.loadNots} />
 
         }
     }

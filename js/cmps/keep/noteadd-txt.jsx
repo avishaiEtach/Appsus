@@ -42,7 +42,7 @@ export class AddNoteTxt extends React.Component {
     }
 
     addTodo = () => {
-        this.state.info.todos.push({ txt: this.state.info.todo })
+        this.state.info.todos.push({ txt: this.state.info.todo, isDone: false })
     }
 
 

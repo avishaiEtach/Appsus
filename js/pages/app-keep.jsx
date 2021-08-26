@@ -22,7 +22,7 @@ export class AppKeep extends React.Component {
     return (
       <section className="kepp">
         <AddNoteTxt loadNots={this.loadNots} />
-        <NotesList notes={this.state.notes} />
+        <NotesList notes={this.state.notes} loadNots={this.loadNots} />
       </section>
     )
   }

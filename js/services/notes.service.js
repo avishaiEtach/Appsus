@@ -12,6 +12,7 @@ export const notesService = {
 
 const KEY = 'NOTESDB';
 let gnotes = storageService.loadFromStorage(KEY) || notes;
+let gnotesTrash = [];
 
 function query() {
     return Promise.resolve(gnotes)
@@ -68,7 +69,7 @@ function _createNoteTodo(label, todos) {
         info: {
             label: label,
             todos: todos
-        }
+        },
     }
 }
 
@@ -83,12 +84,14 @@ function DeleteNote(noteId) {
         return noteId === note.id
     })
     gnotes.splice(noteIdx, 1)
+    var note = getNoteById(noteId)
+    gnotesTrash.push(note)
     _saveNoteToStorage();
     return Promise.resolve()
 }
 
 function getNoteById(noteId) {
-    var note = gCars.find(function (note) {
+    var note = gnotes.find(function (note) {
         return noteId === note.id
     })
     return Promise.resolve(note)
