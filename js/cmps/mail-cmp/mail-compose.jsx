@@ -1,5 +1,5 @@
 ///add send modal....
-import { mailService } from "../services/mail.service.js";
+import { mailService } from "../../services/mail.service.js";
 
 export class MailCompose extends React.Component {
   state = {
@@ -10,6 +10,12 @@ export class MailCompose extends React.Component {
     this.setState({ newMail: { to: "", subject: "", body: "",send: false  } });
   }
 
+  componentWillUnmount(){
+    console.log("we out of here honey")
+    const {to,subject,body}=this.state.newMail;
+    if (to.length>0 || subject.length>0|| body.length>0) 
+    mailService.addMailToSentOrDraftsMails(this.state.newMail,false);
+  }
   onClicKSend = (ev) => {
     ev.preventDefault();
     this.setState({ newMail: { ...this.state.newMail, send: true } });
@@ -18,7 +24,7 @@ export class MailCompose extends React.Component {
     setTimeout(() => {
         this.setState({ newMail: { to: "", subject: "", body: "",send: false  } });  
     }, 300);
-    mailService.addMailToSentMails(this.state.newMail);
+    mailService.addMailToSentOrDraftsMails(this.state.newMail,true);
   };
 
   handleChange = (ev) => {
