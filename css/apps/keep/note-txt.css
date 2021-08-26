@@ -1,0 +1,9 @@
+.note-txt{
+    background-color: #f94144;
+    border-radius: 10px;
+}
+
+.note-txt p{
+    padding-left: 20px;
+    padding-top: 20px;
+}

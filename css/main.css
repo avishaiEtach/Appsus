@@ -1,5 +1,12 @@
 @import '../css/cmps/app-header.css';
-
+@import '../css/apps/keep/note-txt.css';
+@import '../css/apps/keep/note-img.css';
+@import '../css/apps/keep/note-todo.css';
+@import '../css/apps/keep/note-list.css';
+@import '../css/apps/keep/note-todo.css';
+@import '../css/apps/keep/note-preview.css';
+@import '../css/apps/keep/note-colorChange.css';
+@import '../css/apps/keep/add-notes.css';
 .mail-list{
     height:400px;
 }
