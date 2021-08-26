@@ -1,0 +1,9 @@
+.nav-bar-emails {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  background-color: #fff;
+  gap: 30px;
+  background-color: rgb(211, 170, 180);
+}
+

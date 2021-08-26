@@ -1,0 +1,16 @@
+ .email-read-true {
+    background: rgba(242,245,245,0.8);
+}
+
+.email-read-false {
+    background: rgba(255,255,255,0.902);
+        color: #202124;
+    }
+    
+    .from-true{
+        font-weight: bold;
+    }
+
+    .subject-true{
+        font-weight: bold;
+    }

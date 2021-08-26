@@ -8,9 +8,9 @@ render(){
         <h1>logo</h1>
         <nav>
           <NavLink exact to="/" >Home</NavLink>
+         < NavLink to="/mail" >Mail</NavLink>
           <NavLink to="/about" >about</NavLink>
           <NavLink to="/keep" >Keep</NavLink>
-          <NavLink to="/mail" >Mail</NavLink>
           <NavLink to="/bookshop" >Books shop</NavLink>
         </nav>
       </section>;

@@ -1,6 +1,6 @@
 export const emails=[
     {"id": "e101", 
-    "subject": "meeting at 17:00",
+    "subject": "ההזמנה שלכם התקבלה",
      "body": "Would love to catch up sometimes", 
      "isRead": false,
       "sentAt" : 1551133930594,
@@ -9,7 +9,7 @@ export const emails=[
        {"id": "e102", 
         "subject": "Miss you!",
          "body": "hello!! ", 
-         "isRead": false,
+         "isRead": true,
           "sentAt" : 1551133930594,
            "to": "momo@momo.com" },
 

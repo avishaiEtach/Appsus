@@ -1,5 +1,4 @@
 @import '../css/cmps/app-header.css';
+@import '../css/cmps/mail-preview.css';
+@import '../css/cmps/mail-nav-bar.css';
 
-.mail-list{
-    height:400px;
-}
