@@ -1,0 +1,18 @@
+.note-img{
+    background-color: #90be6d;
+    border-radius: 10px;
+}
+
+.note-img section{
+    height: 15em;
+}
+
+.note-img h3{
+    padding-left: 20px;
+}
+
+.note-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}

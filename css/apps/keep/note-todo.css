@@ -1,0 +1,9 @@
+.note-todo{
+background-color: #f9c74f;
+border-radius: 10px;
+}
+
+.note-todo h3{
+    padding-left: 20px;
+    padding-top: 20px;
+    }
