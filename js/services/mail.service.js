@@ -3,22 +3,29 @@ import { storageService } from './storage.service.js'
 import { emails } from '../../assets/emails.js'
 const MAILS = 'MAILS';
 const SENT_MAILES = 'SENT';
+const DRAFTS = 'DRAFTS';
 
 export const mailService = {
     queryMails,
     querySentMails,
+    queryDraftMails,
     getMailById,
-    addMailToSentMails,
-    _createSentMail,
-    _CreateSentMails
+    addMailToSentOrDraftsMails,
 }
 
+//all data
 let gMails=emails;
 let gSentMails;
-const loggedinUser = { email: 'user@appsus.com', fullname: 'Mahatma Appsus' }
-_CreateSentMails();
+let gDrafts;
 
-function getMailById(mailId){
+_CreateInboxMails();
+_CreateSentMails();
+_CreateDraftMails();
+
+
+const loggedinUser = { email: 'user@appsus.com', fullname: 'Mahatma Appsus' }
+
+function getMailById(mailId) {
     let mail = gMails.find(function (mail) {
         return mailId === mail.id
     })
@@ -30,25 +37,45 @@ function queryMails() {
     return Promise.resolve(gMails)
 }
 
-function querySentMails(){
+function querySentMails() {
     return Promise.resolve(gSentMails)
 }
 
-function addMailToSentMails(carToAdd) {
-    let mail = _createSentMail(carToAdd.to, carToAdd.subject,carToAdd.body);
-    gSentMails.unshift(mail)
-    console.log(gSentMails);
-    _saveMailsToStorage();
-    return Promise.resolve()
+function queryDraftMails() {
+    return Promise.resolve(gDrafts)
 }
 
-function _createSentMail(to,subject,body) {
+function addMailToSentOrDraftsMails(carToAdd, isSend) {
+    let mail = _createSentOrDraftMail(carToAdd.to, carToAdd.subject, carToAdd.body);
+    if (isSend) {
+        gSentMails.unshift(mail)
+        _saveToStorage('sent');
+        return Promise.resolve()
+    }
+    else {
+        gDrafts.unshift(mail);
+        _saveToStorage('draft');
+        return Promise.resolve()
+    }
+}
+
+function _createSentOrDraftMail(to, subject, body) {
     return {
         id: utilService.makeId(),
-        to:to,
-        subject:subject,
+        to: to,
+        subject: subject,
         body: body,
+        sentAt: Date.now()
     }
+}
+
+function _CreateDraftMails() {
+    let draftMails = storageService.loadFromStorage(DRAFTS)
+    if (!draftMails || !draftMails.length) {
+        draftMails = []
+    }
+    gDrafts = draftMails;
+    _saveToStorage('draft');
 }
 
 function _CreateSentMails() {
@@ -57,9 +84,25 @@ function _CreateSentMails() {
         sentMails = []
     }
     gSentMails = sentMails;
-    _saveMailsToStorage();
+    _saveToStorage('sent');
 }
 
-function _saveMailsToStorage() {
-    storageService.saveToStorage(SENT_MAILES, gSentMails)
+function _saveToStorage(type) {
+  switch (type){
+      case 'sent':
+        storageService.saveToStorage(SENT_MAILES, gSentMails)
+        break;
+      case 'inbox':
+        storageService.saveToStorage(DRAFTS, gDrafts)
+        break;
+      case 'draft':
+      storageService.saveToStorage(MAILS, gMails)
+      break;
+  }
+}
+
+ function _CreateInboxMails(){
+    let mails=gMails;
+    mails.map((mail) => {mail.star= false});
+    gMails = mails;
 }

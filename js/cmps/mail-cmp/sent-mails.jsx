@@ -1,6 +1,6 @@
-import { MailPreview } from "../mail-preview.jsx"
+import { MailPreview } from "./mail-preview.jsx"
 import { mailService } from "../../services/mail.service.js";
-import { MailList } from "../mail-list.jsx"
+import { MailList } from "./mail-list.jsx"
 export class SentMails extends React.Component {
   state = {
     sentMails: [],

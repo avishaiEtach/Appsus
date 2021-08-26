@@ -1,9 +1,8 @@
 import { MailPreview } from "./mail-preview.jsx";
 
-export function MailList(props) {
-  const mails=props.mails;
+export function MailList({mails}) {
 
-  console.log(props);
+  console.log(mails);
   if (!mails)  return <div>no mails for now...</div>
     return (
       <section className="mail-list">
