@@ -1,22 +1,22 @@
 import { utilService } from './util.service.js'
 import { storageService } from './storage.service.js'
 import { emails } from '../../assets/emails.js'
-const KEYMMAILS = 'MAILS';
-const KEYSENT = 'SENT';
+const MAILS = 'MAILS';
+const SENT_MAILES = 'SENT';
 
 export const mailService = {
     queryMails,
+    querySentMails,
     getMailById,
     addMailToSentMails,
     _createSentMail,
-    querySentMails
-
+    _CreateSentMails
 }
 
 let gMails=emails;
-let gSentMails=[];
+let gSentMails;
 const loggedinUser = { email: 'user@appsus.com', fullname: 'Mahatma Appsus' }
-
+_CreateSentMails();
 
 function getMailById(mailId){
     let mail = gMails.find(function (mail) {
@@ -33,10 +33,12 @@ function queryMails() {
 function querySentMails(){
     return Promise.resolve(gSentMails)
 }
+
 function addMailToSentMails(carToAdd) {
     let mail = _createSentMail(carToAdd.to, carToAdd.subject,carToAdd.body);
     gSentMails.unshift(mail)
-    //_saveCarsToStorage();
+    console.log(gSentMails);
+    _saveMailsToStorage();
     return Promise.resolve()
 }
 
@@ -47,4 +49,17 @@ function _createSentMail(to,subject,body) {
         subject:subject,
         body: body,
     }
+}
+
+function _CreateSentMails() {
+    let sentMails = storageService.loadFromStorage(SENT_MAILES)
+    if (!sentMails || !sentMails.length) {
+        sentMails = []
+    }
+    gSentMails = sentMails;
+    _saveMailsToStorage();
+}
+
+function _saveMailsToStorage() {
+    storageService.saveToStorage(SENT_MAILES, gSentMails)
 }

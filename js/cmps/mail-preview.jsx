@@ -5,7 +5,7 @@ class _MailPreview extends React.Component {
 
   OnCliCKMail=(id)=>{
     console.log('in clicl mail from app-mail, id: ', id)
-    this.props.history.push(`mail/${id}`)
+    this.props.history.push(`mail/read/${id}`)
     }
 
   render() {

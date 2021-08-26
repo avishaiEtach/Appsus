@@ -1,10 +1,10 @@
 import { MailPreview } from "./mail-preview.jsx";
 
+export function MailList(props) {
+  const mails=props.mails;
 
-export class MailList extends React.Component {
-    
-  render() {
-    const {mails}=this.props;
+  console.log(props);
+  if (!mails)  return <div>no mails for now...</div>
     return (
       <section className="mail-list">
         <table>
@@ -16,5 +16,4 @@ export class MailList extends React.Component {
         </table>
       </section>
     );
-  }
 }

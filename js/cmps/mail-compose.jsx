@@ -18,6 +18,7 @@ export class MailCompose extends React.Component {
     setTimeout(() => {
         this.setState({ newMail: { to: "", subject: "", body: "",send: false  } });  
     }, 300);
+    mailService.addMailToSentMails(this.state.newMail);
   };
 
   handleChange = (ev) => {

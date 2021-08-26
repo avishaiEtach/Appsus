@@ -1,6 +1,6 @@
 import { MailPreview } from "../mail-preview.jsx"
-
-
+import { mailService } from "../../services/mail.service.js";
+import { MailList } from "../mail-list.jsx"
 export class SentMails extends React.Component {
   state = {
     sentMails: [],
@@ -17,18 +17,6 @@ export class SentMails extends React.Component {
   };
 
   render() {
-    const {sentMails}=this.state;
-  return (  
-    <section className="sent-mail-list">
-        ddddd
-    {/* <table>
-      <tbody>
-        {sentMails.map((mail) => (
-          <MailPreview key={mail.id} mail={mail} />
-        ))}
-      </tbody>
-    </table> */}
-  </section>
-  );
-  }
+    return (<MailList mails={this.state.sentMails}/>)
+}
 }
