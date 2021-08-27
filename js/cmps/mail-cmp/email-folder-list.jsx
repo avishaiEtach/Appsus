@@ -30,6 +30,10 @@ export class EmailFolderList extends React.Component {
       });
   };
 
+  changReadUnread=()=>{
+
+  }
+  
   render() {
     const { mails } = this.state;
     if (!this.state.mails)
@@ -38,7 +42,7 @@ export class EmailFolderList extends React.Component {
       return (
         <React.Fragment>
           <MailFilter onSetFilter={this.onSetFilter} />
-          <MailList mails={mails} />
+          <MailList mails={mails} markFunction={this.changReadUnread}/>
         </React.Fragment>
       );
   }
