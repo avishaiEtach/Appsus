@@ -1,4 +1,4 @@
-
+const { NavLink, Route } = ReactRouterDOM
 import { notesService } from "../../services/notes.service.js"
 
 export class AddNoteTxt extends React.Component {
@@ -47,8 +47,13 @@ export class AddNoteTxt extends React.Component {
 
 
 
+
+
+
+
+
     render() {
-        const { txt, url, label, todo } = this.state;
+        const { txt, url, label, todo } = this.state.info;
 
         return (
             <section className="note-Add">

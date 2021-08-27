@@ -1,14 +1,12 @@
 const { NavLink } = ReactRouterDOM;
 
-export class KeppNavBar extends React.Component {
+export class KeepNavBar extends React.Component {
     render() {
         return (
             <div className="nav-bar-keep">
-                <NavLink className="fas fa-pen" to="/keep">
-                    keep
+                <NavLink className="fas fa-pen" to="/keep/aditor">
                 </NavLink>
                 <NavLink className="far fa-trash-alt" to="/keep/trash">
-                    trash
                 </NavLink>
             </div>
         );

@@ -12,15 +12,15 @@ export class AppMail extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="main-countiner">
         <MailNavBar />
         <MailFilter />
-        <Route path="/mail/inbox" component={MailInbox} /> 
+        <Route path="/mail/inbox" component={MailInbox} />
         <Route path="/mail/compose" component={MailCompose} />
         <Route path="/mail/read/:mailID" component={EmailDetails} />
-        <Route path="/mail/sentmails" component={SentMails} /> 
-       {/* <Route path="/mail/starred" component={} /> */}
-        { <Route path="/mail/drafts" component={MailDrafts} /> }
+        <Route path="/mail/sentmails" component={SentMails} />
+        {/* <Route path="/mail/starred" component={} /> */}
+        {<Route path="/mail/drafts" component={MailDrafts} />}
         {/* <Route path="/mail/trash" component={EmailDetails} />  */}
       </div>
     );

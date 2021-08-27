@@ -1,0 +1,4 @@
+.main-countiner{
+    display: flex;
+    flex-direction: row;
+}

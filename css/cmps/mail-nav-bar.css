@@ -3,7 +3,25 @@
   flex-direction: column;
   width: 20%;
   background-color: #fff;
-  gap: 30px;
   background-color: rgb(211, 170, 180);
+  margin-top: 10px;
 }
 
+.nav-bar-emails>*{
+  color: black;
+  text-decoration: none;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
+  padding-top: 10px;
+}
+
+.nav-bar-emails>*:hover{
+  background-color: ;
+}
+
+
+.nav-bar-emails span{
+  margin-inline-start: 20px;
+}
