@@ -7,10 +7,10 @@
         color: #202124;
     }
     
-    .from-true{
+    .from-false{
         font-weight: bold;
     }
 
-    .subject-true{
-        font-weight: bold;
+    .subject-false{
+         font-weight: bold;
     }

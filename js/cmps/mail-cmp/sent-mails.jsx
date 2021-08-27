@@ -1,4 +1,3 @@
-import { MailPreview } from "./mail-preview.jsx"
 import { mailService } from "../../services/mail.service.js";
 import { MailList } from "./mail-list.jsx"
 export class SentMails extends React.Component {
@@ -11,7 +10,7 @@ export class SentMails extends React.Component {
   }
 
   loadSentMails = () => {
-    mailService.querySentMails().then((sentMails) => {
+    mailService.queryAllTypeOfMails('sent-mails').then((sentMails) => {
       this.setState({ sentMails });
     });
   };

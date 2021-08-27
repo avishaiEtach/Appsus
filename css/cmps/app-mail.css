@@ -1,4 +1,28 @@
 .main-countiner{
     display: flex;
     flex-direction: row;
+    margin-top: 10px;
 }
+
+.fillterAndList{
+    margin-top: 10px;
+    margin-inline-start: 15px;
+    display: flex;
+    flex-direction: column;
+   width: 100%;
+    
+}
+
+.fillterAndList .mail-list{
+    margin-top: 10px;
+ }
+
+ .fillterAndList .mail-list{
+    margin-top: 10px;
+ }
+
+ .fillterAndList .mail-list table {
+    margin: 0;
+    width: 100%;
+ }
+ 
