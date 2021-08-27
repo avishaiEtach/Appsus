@@ -1,20 +1,23 @@
 ///add send modal....
 import { mailService } from "../../services/mail.service.js";
-
+import { MailFilter } from "../cmps/mail-cmp/mail-filter.jsx";
 export class MailCompose extends React.Component {
   state = {
     newMail: { to: "", subject: "", body: "", send: false },
   };
 
   componentDidMount() {
-    this.setState({ newMail: { to: "", subject: "", body: "",send: false  } });
+    this.setState({ newMail: { to: "", subject: "", body: "", send: false } });
   }
 
-  componentWillUnmount(){
-    console.log("we out of here honey")
-    const {to,subject,body}=this.state.newMail;
-    if (to.length>0 || subject.length>0|| body.length>0) 
-    mailService.addMailToSentOrDraftsMails(this.state.newMail,false);
+  onSetFilter = (filterBy) => {
+  };
+
+  componentWillUnmount() {
+    console.log("we out of here honey");
+    const { to, subject, body } = this.state.newMail;
+    if (to.length > 0 || subject.length > 0 || body.length > 0)
+      mailService.addMailToSentOrDraftsMails(this.state.newMail, false);
   }
   onClicKSend = (ev) => {
     ev.preventDefault();
@@ -22,9 +25,11 @@ export class MailCompose extends React.Component {
 
     //this if for the send modal
     setTimeout(() => {
-        this.setState({ newMail: { to: "", subject: "", body: "",send: false  } });  
+      this.setState({
+        newMail: { to: "", subject: "", body: "", send: false },
+      });
     }, 300);
-    mailService.addMailToSentOrDraftsMails(this.state.newMail,true);
+    mailService.addMailToSentOrDraftsMails(this.state.newMail, true);
   };
 
   handleChange = (ev) => {
@@ -36,8 +41,8 @@ export class MailCompose extends React.Component {
   render() {
     const { to, subject, body } = this.state.newMail;
     return (
-
       <section>
+     <MailFilter onSetFilter={this.onSetFilter}/>
         <div>New Massage</div>
         <form>
           <label htmlFor="email"></label> <br />

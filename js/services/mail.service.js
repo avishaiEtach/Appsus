@@ -6,9 +6,7 @@ const SENT_MAILES = 'SENT';
 const DRAFTS = 'DRAFTS';
 
 export const mailService = {
-    queryMails,
-    querySentMails,
-    queryDraftMails,
+    queryAllTypeOfMails,
     getMailById,
     addMailToSentOrDraftsMails,
 }
@@ -17,6 +15,7 @@ export const mailService = {
 let gMails=emails;
 let gSentMails;
 let gDrafts;
+let gTrash;
 
 _CreateInboxMails();
 _CreateSentMails();
@@ -32,18 +31,46 @@ function getMailById(mailId) {
     return Promise.resolve(mail)
 }
 
-function queryMails() {
-    console.log('query mails')
-    return Promise.resolve(gMails)
+function queryAllTypeOfMails(wantedType,filterBy){
+     let mailsToShow=gMails;
+    let filterShow;
+    switch (wantedType){
+        case 'inbox':
+            mailsToShow=gMails;
+          break;
+        case 'sentmails':
+            mailsToShow=gSentMails;
+          break;
+        case 'draft':
+            mailsToShow=gDrafts;
+        break;
+        case 'trash':
+            mailsToShow=gTrash;
+        break;
+        case 'starred':
+            mailsToShow = mailsToShow.filter(mail => { return (mail.star===true )})
+        break;
+        default:
+            mailsToShow=gMails;
+    }
+    if (filterBy){
+        debugger;
+        let { txt, isRead } = filterBy;
+        if (isRead===true ||isRead===false )   
+        mailsToShow = mailsToShow.filter(mail => {
+            return (mail.body.includes(txt) &&  mail.isRead === isRead )
+               //lables
+        })
+        else{
+            mailsToShow = mailsToShow.filter(mail => {
+                return (mail.body.includes(txt))
+            })  
+        }
+    }
+    return Promise.resolve(mailsToShow);
 }
 
-function querySentMails() {
-    return Promise.resolve(gSentMails)
-}
 
-function queryDraftMails() {
-    return Promise.resolve(gDrafts)
-}
 
 function addMailToSentOrDraftsMails(carToAdd, isSend) {
     let mail = _createSentOrDraftMail(carToAdd.to, carToAdd.subject, carToAdd.body);
