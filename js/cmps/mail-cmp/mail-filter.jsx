@@ -11,6 +11,7 @@ export class MailFilter extends React.Component {
   componentDidMount() {}
 
   handleChange = (ev) => {
+    debugger;
     const field = ev.target.name;
     const value = ev.target.value;
     console.log(field);
@@ -47,8 +48,16 @@ export class MailFilter extends React.Component {
           this.props.onSetFilter(this.state.filterBy);
         }
       );
-    
     }
+    else 
+    this.setState(
+      { filterBy: { ...this.state.filterBy, ["txt"]: value } },
+      () => {
+        this.props.onSetFilter(this.state.filterBy);
+      }
+    );
+       
+    
   };
 
   render() 

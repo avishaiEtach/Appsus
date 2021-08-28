@@ -11,10 +11,16 @@ export const utilService = {
 
 function getStrTime(time){
     const ms=new Date(time);
+    const todayYime=new Date();
     const hrs = ms.getHours();
     const mins = ms.getMinutes();
+    const day = ms.getHours();
+    const month = ms.getMinutes();
 
     let str= `${hrs < 10 ? '0' : ''}${hrs}:${mins < 10 ? '0' : ''}${mins}`
+   let date=`${day}/${month}`
+   //if ((todayYime-ms)>(259,200,000)) return  date;
+
     return str;
 
 }
@@ -46,10 +52,16 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
 }
 
-function showOnLyPartOfString(str) {
-    let res;
-    if (str.length>50)
-     res=str.substring(0,40)+'...';
+function showOnLyPartOfString(str,num,withDotes) {
+
+    let res=str;
+    if (str.length>num){
+     res=str.substring(0,num)
+    }
+
+     if(withDotes) {
+     res=''+res+'...'
+     }
     return res;
 }
 

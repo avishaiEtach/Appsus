@@ -33,10 +33,11 @@ class _MailPreview extends React.Component {
   };
 
   toggleStar = () => {
-    if (this.state.mail.star) this.state.mail.star = false;
-    else this.state.mail.star = true;
-    mailService.toggleStarByID(this.state.mail.id);
-    this.setState({ mail: this.props.mail });
+    const { mail } = this.state;
+    if (mail.star) mail.star = false;
+    else mail.star = true;
+    this.setState({ mail: mail });
+    mailService.toggleStarByID(mail.id);
   };
 
   moveToTrashPreview = () => {
@@ -49,11 +50,6 @@ class _MailPreview extends React.Component {
       return (
         <tr className={`email-read-${mail.isRead}`}>
           <td className="button-left">
-            {typeShow === "trash" && (
-              <td>
-                <button className="far fa-trash-alt  opt-button"></button>
-              </td>
-            )}
             {mail.star && typeShow != "trash" && (
               <td>
                 <button
@@ -82,11 +78,28 @@ class _MailPreview extends React.Component {
           </td>
           <td>
             <div className="mail-preview-text">
-            <span className={`from ${mail.isRead} `}  onClick={this.OnCliCKMail}>{mail.to}</span>
-            <section>
-            <span className={`subject ${mail.isRead}`} onClick={this.OnCliCKMail}> {mail.subject} </span>
-            <span className="body" onClick={this.OnCliCKMail}>{utilService.showOnLyPartOfString(mail.body)} </span>
-            </section>
+              <span
+                className={`from ${mail.isRead} `}
+                onClick={this.OnCliCKMail}
+              >
+                {mail.to}
+              </span>
+              <section>
+                <span
+                  className={`subject ${mail.isRead}`}
+                  onClick={this.OnCliCKMail}
+                >
+                  {" "}
+                  {utilService.showOnLyPartOfString(
+                    mail.subject,
+                    25,
+                    false
+                  )}{" "}
+                </span>
+                <span className="body" onClick={this.OnCliCKMail}>
+                  {utilService.showOnLyPartOfString(mail.body, 50, true)}{" "}
+                </span>
+              </section>
             </div>
           </td>
 

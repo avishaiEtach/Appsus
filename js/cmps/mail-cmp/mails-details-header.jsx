@@ -20,6 +20,7 @@ export class MailsDetailsHeader extends React.Component {
     return (
       <div className="subject-mail">
         <h1>{mail.subject}</h1>
+        <h5>{mail.to}</h5>
         <span>
           {utilService.getFullTimeStr(mail.sentAt)}
           {mail.star && 

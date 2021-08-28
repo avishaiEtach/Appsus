@@ -14,7 +14,7 @@ export const emails=[
            "to": "shein.com" },
 
            {"id": "e103", 
-            "subject": "mail 3",
+            "subject": "Important information to help you prepare for your upcoming trip to Canada / Renseignements pour vous préparer en prévision de votre voyage au Canada",
              "body": "whats going on?", 
              "isRead": false,
               "sentAt" : 1551133930594,
