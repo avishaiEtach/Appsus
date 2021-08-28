@@ -42,10 +42,10 @@ export class MailCompose extends React.Component {
     const { to, subject, body } = this.state.newMail;
     return (
       <section>
-     <MailFilter onSetFilter={this.onSetFilter}/>
-        <div>New Massage</div>
-        <form>
-          <label htmlFor="email"></label> <br />
+        <MailFilter onSetFilter={this.onSetFilter} />
+        <div className="newMailHadder">New Massage</div>
+        <form className="newMail">
+          {/* <label htmlFor="email"></label> */}
           <input
             type="email"
             id="to"
@@ -54,7 +54,7 @@ export class MailCompose extends React.Component {
             onChange={this.handleChange}
             value={to}
           />
-          <label htmlFor="subject"></label> <br />
+          {/* <label htmlFor="subject"></label> <br /> */}
           <input
             type="text"
             id="subject"
@@ -63,16 +63,17 @@ export class MailCompose extends React.Component {
             onChange={this.handleChange}
             value={subject}
           />
-          <label htmlFor="body"></label> <br />
-          <input
+          {/* <label htmlFor="body"></label> <br /> */}
+          <textarea
             type="text"
             id="body"
             placeholder=""
             name="body"
             onChange={this.handleChange}
             value={body}
-          />
-          <br />
+          >
+          </textarea>
+          {/* <br /> */}
           <button onClick={this.onClicKSend}>send</button>
         </form>
       </section>

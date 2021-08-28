@@ -33,6 +33,7 @@
 
 .body{
     font-size: 0.8rem;
+    width: 50px;
 }
 .mail-preview-text{
     display: flex;

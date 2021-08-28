@@ -28,7 +28,7 @@ export class KeepAditor extends React.Component {
     render() {
 
         return (
-            <section>
+            <section className="main-keep">
                 < AddNoteTxt loadNots={this.loadNots} />
                 <NotesList notes={this.state.notes} loadNots={this.loadNots} />
             </section>

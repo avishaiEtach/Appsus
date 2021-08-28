@@ -1,9 +1,13 @@
 @import '../css/pages/app-header.css';
 @import '../css/mails/mail-preview.css';
+@import '../css/apps/keep/app-keep.css';
+@import '../css/apps/keep/keep-nav-bar.css';
+@import '../css/apps/keep/main-keep.css';
 @import '../css/mails/mail-nav-bar.css';
 @import '../css/mails/app-mail.css';
 @import '../css/mails/mail-folder-list.css';
 @import '../css/mails/mail-list.css';
+@import '../css/mails/mail-compose.css';
 @import '../css/apps/keep/note-txt.css';
 @import '../css/apps/keep/note-img.css';
 @import '../css/apps/keep/note-todo.css';
@@ -14,4 +18,11 @@
 @import '../css/apps/keep/add-notes.css';
 @import '../css/mails/mail-filter.css';
 @import '../css/pages/app-home.css';
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 

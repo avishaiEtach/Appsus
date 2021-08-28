@@ -24,6 +24,9 @@
     width: 100%;
  }
  
+ .fillterAndList .mail-list table span{
+  margin-left: 20px;
+ }
  tr{
    background-color: whitesmoke;
  }

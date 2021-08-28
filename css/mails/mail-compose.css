@@ -1,0 +1,35 @@
+.newMail{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.newMailHadder{
+    margin-top: 25px;
+    font-weight: 600;
+    font-size: 24px;
+    
+}
+.newMail>*{
+    margin-top: 15px;
+    /* border: 1px solid #3f4238 ; */
+    border-color:#3f4238 ;
+    border-width: 1px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.newMail button{
+    width: 20%;
+   }
+   
+.newMail button:hover{
+ background-color: #9fb8ad;
+ cursor: pointer;
+}
+
+.newMail>:nth-child(3n){
+   height: 100px;
+}
+

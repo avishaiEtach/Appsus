@@ -26,9 +26,9 @@ export class NotesPreview extends React.Component {
     render() {
         const { note } = this.props;
         return (
-            <div>
+            <React.Fragment>
                 {this.loadTypes()}
-            </div>
+            </React.Fragment>
         )
             ;
     }

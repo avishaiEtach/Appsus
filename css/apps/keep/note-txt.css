@@ -1,22 +1,53 @@
 .note-txt{
     background-color: #f94144;
     border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 30%;
 }
 
 .note-txt p{
-    padding-left: 20px;
-    padding-top: 20px;
+   padding-top: 10px;
 }
 
 .note-txt .input-container{
-   display: none;
+    display: none;
 }
 .note-txt .active {
-    display: block;
+    display: flex;
 }
 
+
 .note-txt img {
-    width: 1.875rem;
-    height: 1.875rem;
-    
+    width: 1.25rem;
+    height: 1.25rem;
+    position: absolute;
+    right: 0;
+    margin-right: 5px;
+}
+
+.note-txt .note-nav{
+    visibility: hidden;
+}
+
+
+.note-txt:hover .note-nav{
+    visibility: visible;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+
+.note-txt .note-nav>*{
+    margin-inline-start: 10px;
+    cursor: pointer;
+}
+
+.note-txt .note-nav>button{
+    border-radius: 10px;
+    border: 0;
+    background-color: inherit;
 }

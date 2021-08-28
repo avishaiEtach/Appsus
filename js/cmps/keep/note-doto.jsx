@@ -61,8 +61,8 @@ export class NoteToDo extends React.Component {
                 <img onClick={this.changePin} src={note.isPinned ? '../../../assets/img/thumbtack.svg' : '../../../assets/img/thumbtack-clear.svg'} alt="" />
                 <h3>{note.info.label}</h3>
                 <ul>{todos.map((todo, idx) => <li className={todo.isDone ? 'line-through' : ''} key={idx} onClick={() => this.ontoglee(idx)}>{todo.txt}</li>)}</ul>
-                <button className="far fa-trash-alt" onClick={this.onDelete}></button>
-                <section>
+                <section className="note-nav">
+                    <button className="far fa-trash-alt" onClick={this.onDelete}></button>
                     <ColorInput isActive={isActive} onChangeStyle={this.onChangeStyle} />
                     <i onClick={this.toggleBox} className="fas fa-palette" ></i>
                     <button className="far fa-copy" onClick={this.onCopy}></button>

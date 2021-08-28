@@ -4,8 +4,8 @@
   width: 20%;
   margin-top: 10px;
   align-items: stretch;
-  gap: 9px;
-  
+  gap: 15px;
+  margin-inline-start: 20px;
 }
 
 .nav-bar-emails>*{
@@ -19,10 +19,27 @@
   border: 1px solid #475841;
   text-align: center;
   width: 60%;
+  transition: 0.4s;
+}
+
+
+.nav-bar-emails>*:hover{
+ background-color:#9fb8ad ;
+}
+
+.nav-bar-emails>a{
+ display: flex;
+ justify-content: space-evenly;
+ text-transform: capitalize;
 }
 
 
 
-.nav-bar-emails span{
-  margin-inline-start: 20px;
+.nav-bar-emails *>span{
+  /* margin-inline-start: 20px; */
+  font-style: italic;
+  text-transform: capitalize0;
+  font-weight: 900;
 }
+
+

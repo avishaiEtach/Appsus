@@ -15,7 +15,7 @@ export class NoteTxt extends React.Component {
     }
 
     toggleBox = () => {
-        this.setState(prevState => ({ noteStyle: { ...prevState.noteStyle, [field]: value } }))
+        this.setState(prevState => ({ isActive: !prevState.isActive }));
     };
 
     changePin = () => {
@@ -52,8 +52,8 @@ export class NoteTxt extends React.Component {
             <div className="note-txt" style={noteStyle}>
                 <img onClick={this.changePin} src={note.isPinned ? '../../../assets/img/thumbtack.svg' : '../../../assets/img/thumbtack-clear.svg'} alt="" />
                 <p>{note.info.txt}</p>
-                <button className="far fa-trash-alt" onClick={this.onDelete}></button>
-                <section>
+                <section className="note-nav">
+                    <button className="far fa-trash-alt" onClick={this.onDelete}></button>
                     <ColorInput isActive={isActive} onChangeStyle={this.onChangeStyle} />
                     <i onClick={this.toggleBox} className="fas fa-palette" ></i>
                     <button className="far fa-copy" onClick={this.onCopy}></button>

@@ -8,21 +8,21 @@ export class MailNavBar extends React.Component {
           <span>Compose</span>
         </NavLink>
         <NavLink className="fas fa-inbox nav-button " to="/mail/type/inbox">
-          inbox
+          <span> inbox</span>
         </NavLink>
         <NavLink className="fas fa-star nav-button" to="/mail/type/starred">
-          Starred
+          <span> Starred </span>
         </NavLink>
 
         <NavLink className="fas fa-share-square nav-button" to="/mail/type/sentmails">
-          Sent mail
+          <span> Sent mail</span>
         </NavLink>
 
         <NavLink className="fab fa-firstdraft nav-button" to="/mail/type/draft">
-          Drafts
+          <span> Drafts</span>
         </NavLink>
         <NavLink className="fas fa-trash-alt" to="/mail/type/trash">
-          Trash
+          <span> Trash</span>
         </NavLink>
       </div>
     );

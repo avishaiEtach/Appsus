@@ -9,7 +9,7 @@ export class AppKeep extends React.Component {
     return (
       <section className="kepp">
         <KeepNavBar />
-        <Search />
+        {/* <Search /> */}
         <Route path="/keep/aditor" component={KeepAditor} />
         <Route path="/keep/trash" component={KeepTrash} />
         {/* <Route path="/mail/compose" component={MailCompose} /> */}

@@ -53,8 +53,8 @@ export class NoteImg extends React.Component {
                     <img src={note.info.url} />
                 </section>
                 <h3>{note.info.title}</h3>
-                <button className="far fa-trash-alt" onClick={this.onDelete}></button>
-                <section>
+                <section className="note-nav">
+                    <button className="far fa-trash-alt" onClick={this.onDelete}></button>
                     <ColorInput isActive={isActive} onChangeStyle={this.onChangeStyle} />
                     <i onClick={this.toggleBox} className="fas fa-palette" ></i>
                     <button className="far fa-copy" onClick={this.onCopy}></button>

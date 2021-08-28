@@ -8,15 +8,19 @@
 }
 
 
- .icon-search-span {
+.icon-search-span {
     right:30px;
     background: #e6e8e6;
-
+    
 }
 
 .filter-mail{
     background: #e6e8e6;
-    width:80%
+    width:80%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+
 }
 .input-field{
     width: 45rem;
@@ -24,6 +28,7 @@
     border: 1px solid transparent;
     height: 2rem;
     opacity: 70%;
+    border-radius: 10px;
 }
  select{
      background-color: transparent;
