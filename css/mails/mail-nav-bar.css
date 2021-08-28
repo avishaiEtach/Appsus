@@ -1,0 +1,28 @@
+.nav-bar-emails {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin-top: 10px;
+  align-items: stretch;
+  gap: 9px;
+  
+}
+
+.nav-bar-emails>*{
+  color: #3f403f;
+  text-decoration: none;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-radius: 15px;
+  border: 1px solid #475841;
+  text-align: center;
+  width: 60%;
+}
+
+
+
+.nav-bar-emails span{
+  margin-inline-start: 20px;
+}

@@ -5,29 +5,61 @@ import { notes } from '../../assets/notes.js'
 export const notesService = {
     query,
     addNote,
-    DeleteNote
+    DeleteNote,
+    queryTrash,
+    _saveNoteToStorage,
+    addPinned,
+    revrstPin
 }
 
 
 
 const KEY = 'NOTESDB';
 let gnotes = storageService.loadFromStorage(KEY) || notes;
-let gnotesTrash = [];
+let gnotesTrash = storageService.loadFromStorage('TrashDB') || [];
 
 function query() {
     return Promise.resolve(gnotes)
 }
 
+function queryTrash() {
+    return Promise.resolve(gnotesTrash)
+}
+
 function addNote(txt, url, type, todo, label) {
-    console.log(todo);
+    console.log(type);
     if (type === 'txt') {
         var note = _createNoteTxt(txt)
     } else if (type === 'img') {
         var note = _createNoteImg(txt, url)
+    } else if (type === 'dotoCopy') {
+        var note = _createNoteTodoCopy(todo, label)
     } else {
         var note = _createNoteTodo(todo, label)
     }
     gnotes.unshift(note)
+    _saveNoteToStorage()
+    return Promise.resolve()
+}
+
+
+function addPinned(note) {
+    let idx = gnotes.findIndex(noteId => noteId.id === note.id)
+    gnotes.splice(idx, 1)
+    gnotes.unshift(note)
+    _saveNoteToStorage()
+    return Promise.resolve()
+}
+
+function revrstPin(note) {
+    let unPinnedNote = gnotes.find(Cnote => !Cnote.isPinned && Cnote.id !== note.id) //  -first not pinned
+    let unPinnedNoteIdx = gnotes.findIndex(Cnote => Cnote === unPinnedNote) // -firstIDX  not pinned
+    let noteIdx = gnotes.findIndex(Cnote => Cnote.id === note.id) // - crr note
+    console.log('unPinnedNote', unPinnedNote)
+    console.log('unPinnedNoteIdx', unPinnedNoteIdx)
+    console.log('noteIdx', noteIdx)
+    gnotes.splice(noteIdx, 1)
+    gnotes.push(note)
     _saveNoteToStorage()
     return Promise.resolve()
 }
@@ -59,7 +91,22 @@ function _createNoteTxt(txt) {
 }
 
 
-function _createNoteTodo(label, todos) {
+
+function _createNoteTodo(label, todo) {
+    console.log(todos)
+    const id = utilService.makeId()
+    return {
+        id: 'n' + id,
+        type: 'note-todos',
+        isPinned: false,
+        info: {
+            label: label,
+            todos: todo
+        },
+    }
+}
+
+function _createNoteTodoCopy(todos, label) {
     console.log(todos)
     const id = utilService.makeId()
     return {
@@ -78,14 +125,23 @@ function _saveNoteToStorage() {
     storageService.saveToStorage(KEY, gnotes)
 }
 
+function _saveTrashNoteToStorage() {
+    storageService.saveToStorage('TrashDB', gnotesTrash)
+}
+
 
 function DeleteNote(noteId) {
     var noteIdx = gnotes.findIndex(function (note) {
         return noteId === note.id
     })
+    getNoteById(noteId)
+        .then((note) => {
+            gnotesTrash.push(note)
+            console.log(gnotesTrash)
+            _saveTrashNoteToStorage()
+        })
+
     gnotes.splice(noteIdx, 1)
-    var note = getNoteById(noteId)
-    gnotesTrash.push(note)
     _saveNoteToStorage();
     return Promise.resolve()
 }
@@ -96,3 +152,4 @@ function getNoteById(noteId) {
     })
     return Promise.resolve(note)
 }
+

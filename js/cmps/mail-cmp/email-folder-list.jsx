@@ -5,6 +5,7 @@ export class EmailFolderList extends React.Component {
   state = {
     mails: [],
     filterBy: null,
+    mailsSelected:0
   };
 
   componentDidMount() {
@@ -20,7 +21,7 @@ export class EmailFolderList extends React.Component {
   };
 
   loadMails = () => {
-      console.log(this.state);
+    console.log(this.state);
     const { filterBy } = this.state;
     const typeOfMAilToReview = this.props.match.params.type;
     mailService
@@ -29,21 +30,45 @@ export class EmailFolderList extends React.Component {
         this.setState({ mails });
       });
   };
+  
+  moveToTrash = (id) => {
+    mailService.deleteMail(this.props.match.params.type,id);
+    this.loadMails();
+  }
 
-  changReadUnread=()=>{
+  mailSelcted=(add)=>{
+    let num=this.state.mailsSelected+add;
+    this.setState({ mailsSelected:num });
+  }
 
+  deleteAllSelected=()=>{
+    const {type}=this.props.match.params
+    mailService.deleteAllSelected(type);
+    this.setState({ mailsSelected:0 });
+    this.loadMails();
   }
   
+  starAllSelected=()=>{
+    const {type}=this.props.match.params
+    mailService.addStarAllSelected(type)
+    this.loadMails();
+  }
+
   render() {
-    const { mails } = this.state;
+    const { mails,mailsSelected } = this.state;
     if (!this.state.mails)
       return <div>There is no mails in this category right now...</div>;
     else
       return (
-        <React.Fragment>
+        <div className="fillterAndList">
           <MailFilter onSetFilter={this.onSetFilter} />
-          <MailList mails={mails} markFunction={this.changReadUnread}/>
-        </React.Fragment>
+          {mailsSelected>0 &&<div className="selected-div">{mailsSelected} selected
+          <button  onClick={this.deleteAllSelected} className="far fa-trash-alt  opt-button"></button>
+          <button  onClick={this.starAllSelected} className="far fa-star  opt-button"></button>
+          </div>}
+          <MailList mails={mails} typeShow={this.props.match.params.type} 
+           moveToTrash={this.moveToTrash} mailSelcted={this.mailSelcted} />
+        </div>
       );
   }
 }

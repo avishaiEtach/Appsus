@@ -8,13 +8,13 @@ export class AppMail extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="main-countiner">
         <MailNavBar />
+        <Route path="/mail/type/:type" component={EmailFolderList} />
         <Route path="/mail/compose" component={MailCompose} />
-        <Route path="/mail/type/:type" component={EmailFolderList} /> 
         <Route path="/mail/read/:mailID" component={EmailDetails} />
-     
       </div>
+
     );
   }
 }

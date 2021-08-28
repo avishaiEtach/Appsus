@@ -1,0 +1,42 @@
+
+@font-face {
+    font-family: BebasNeue-Regular;
+    src: url(../../assets/fonts/BebasNeue/BebasNeue-Regular.ttf);
+}
+*{
+    color:#3f4238;
+}
+.app-header-static{
+    display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #9fb8ad;
+font-family: BebasNeue-Regular;
+}
+
+
+.app-header-static h1{
+    font-size: 2.5em;
+    text-transform: uppercase ;
+    font-family: BebasNeue-Regular;
+    letter-spacing: 10px;
+   }
+
+
+.app-header-static nav{
+display: flex;
+justify-content: space-between;
+}
+
+.app-header-static img{
+     width: 3.125rem;
+     height: 3.125rem;
+     margin-inline-start: 25px;
+    }
+
+.app-header-static nav>*:not(nav:last-child){
+    margin-right:0.93rem ;
+    text-decoration: none;
+    color: black;
+}
+

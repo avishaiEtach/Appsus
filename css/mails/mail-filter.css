@@ -1,0 +1,34 @@
+.fillterAndList{
+    margin-top: 10px;
+    margin-inline-start: 15px;
+    display: flex;
+    flex-direction: column;
+   width: 100%;
+    
+}
+
+
+ .icon-search-span {
+    right:30px;
+    background: #e6e8e6;
+
+}
+
+.filter-mail{
+    background: #e6e8e6;
+    width:80%
+}
+.input-field{
+    width: 45rem;
+    background: #e6e8e6;
+    border: 1px solid transparent;
+    height: 2rem;
+    opacity: 70%;
+}
+ select{
+     background-color: transparent;
+     border: 1px thick;
+     padding-left:0.5rem;
+     margin-left: 1rem;
+     border-color: rgb(175, 171, 171);
+ }

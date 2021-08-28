@@ -3,7 +3,10 @@ export const utilService = {
     makeLorem,
     getRandomIntInclusive,
     getStrTime,
-    showOnLyPartOfString
+    showOnLyPartOfString,
+    compareDatesByMs,
+    compareString,
+    getFullTimeStr
 }
 
 function getStrTime(time){
@@ -44,8 +47,42 @@ function getRandomIntInclusive(min, max) {
 }
 
 function showOnLyPartOfString(str) {
-    if (str.length>50){
-    let res=string.substring(0,50)+'...';
-    }
-return res;
+    let res;
+    if (str.length>50)
+     res=str.substring(0,40)+'...';
+    return res;
+}
+
+function compareDatesByMs(email1,email2){
+    debugger;
+let date1=new Date(email1.sentAt)
+let date2=new Date(email2.sentAt)
+
+if (date1 > date2) return 1
+if (date1 < date2) return -1
+return 0;
+}
+
+function compareString(mail1,mail2){
+    var str1=mail1.subject.toLowerCase(), str2=mail2.subject.toLowerCase();
+    if (str1 < str2) //sort string ascending
+     return -1;
+    if (str1 > str2)
+     return 1;
+    return 0;
+}
+
+function getFullTimeStr(time){
+    debugger;
+    let str='';
+    const ms=new Date(time);
+    const day=ms.getDay();
+    const month=ms.getMonth();
+    const year=ms.getYear();
+    const hrs = ms.getHours();
+    const mins = ms.getMinutes();
+
+     str=str+ `${day}/${month}/${year} ${hrs < 10 ? '0' : ''}${hrs}:${mins < 10 ? '0' : ''}${mins}`
+     console.log(str);
+    return str;
 }

@@ -1,0 +1,66 @@
+.email-read-true {
+}
+
+.email-read-false {
+}
+
+.false {
+  font-weight: bold;
+}
+  .from .false {
+  font-weight: bold;
+}
+
+.opt-button {
+  background-color: transparent;
+  border: 0ch;
+}
+.opt-button:hover {
+  background-color: #e6e8e6;
+}
+
+.from {
+  font-size: 0.7rem;
+  margin-right: 100px;
+  width:1.2rem
+}
+.subject {
+  font-size: 1rem;
+}
+.button-left{
+    width:1rem;
+}
+
+.body{
+    font-size: 0.8rem;
+}
+.mail-preview-text{
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.filterAndPreview {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 3rem;
+}
+.subject-mail {
+    width:50rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.button-right{
+    justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
+}

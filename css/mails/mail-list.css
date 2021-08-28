@@ -1,0 +1,29 @@
+
+.mail-list{
+   font-family:-webkit-pictograph;
+   width:80%
+}
+
+.filter-mail{
+   display: flex;
+   align-items: baseline
+}
+.fillterAndList .mail-list{
+   font-family: -webkit-pictograph;
+    margin-top: 10px;
+ }
+
+ .fillterAndList .mail-list{
+   font-family: -webkit-pictograph;
+    margin-top: 10px;
+ }
+
+ .fillterAndList .mail-list table {
+   font-family: -webkit-pictograph;
+    margin: 0;
+    width: 100%;
+ }
+ 
+ tr{
+   background-color: whitesmoke;
+ }

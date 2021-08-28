@@ -1,5 +1,5 @@
 import { mailService } from "../../services/mail.service.js";
-import {MailsDetailsHeader} from "./mails-details-header.jsx"
+import { MailsDetailsHeader } from "./mails-details-header.jsx";
 import { MailFilter } from "../cmps/mail-cmp/mail-filter.jsx";
 
 export class EmailDetails extends React.Component {
@@ -20,15 +20,16 @@ export class EmailDetails extends React.Component {
   }
 
   render() {
-    const {mail} = this.state;
-    if (!mail) return <div>Loading...</div>
+    const { mail } = this.state;
+    if (!mail) return <div>Loading...</div>;
     return (
-  <section>
-         <MailFilter />
-    <MailsDetailsHeader mail={mail}/> 
-    <h1>{mail.subject}</h1>
-    <h5>{mail.body}</h5>
-  </section>
+      <section className="filterAndPreview">
+        <MailFilter />
+        <div>
+          <MailsDetailsHeader mail={mail} />
+          <h5>{mail.body}</h5>
+        </div>
+      </section>
     );
   }
 }
