@@ -93,7 +93,6 @@ function _createNoteTxt(txt) {
 
 
 function _createNoteTodo(label, todo) {
-    console.log(todos)
     const id = utilService.makeId()
     return {
         id: 'n' + id,
@@ -107,7 +106,6 @@ function _createNoteTodo(label, todo) {
 }
 
 function _createNoteTodoCopy(todos, label) {
-    console.log(todos)
     const id = utilService.makeId()
     return {
         id: 'n' + id,

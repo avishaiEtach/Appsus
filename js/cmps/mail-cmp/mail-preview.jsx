@@ -84,7 +84,7 @@ class _MailPreview extends React.Component {
               >
                 {mail.to}
               </span>
-              <section>
+              <section className="mail-txt-body">
                 <span
                   className={`subject ${mail.isRead}`}
                   onClick={this.OnCliCKMail}

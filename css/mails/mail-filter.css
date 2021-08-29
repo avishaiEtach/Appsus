@@ -3,8 +3,6 @@
     margin-inline-start: 15px;
     display: flex;
     flex-direction: column;
-   width: 100%;
-    
 }
 
 
@@ -36,4 +34,15 @@
      padding-left:0.5rem;
      margin-left: 1rem;
      border-color: rgb(175, 171, 171);
+ }
+
+ @media ( min-width:450px){
+    .fillterAndList{
+        margin-top: 10px;
+        margin-inline-start: 15px;
+        display: flex;
+        flex-direction: column;
+       width: 80%;
+        
+    }
  }

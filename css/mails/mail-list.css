@@ -1,7 +1,7 @@
 
 .mail-list{
    font-family:-webkit-pictograph;
-   width:80%
+   /* width:80% */
 }
 
 .filter-mail{
@@ -24,9 +24,9 @@
     width: 100%;
  }
  
- .fillterAndList .mail-list table span{
+ /* .fillterAndList .mail-list table span{
   margin-left: 20px;
- }
+ } */
  tr{
    background-color: whitesmoke;
  }

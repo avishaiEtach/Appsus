@@ -18,11 +18,19 @@
 @import '../css/apps/keep/add-notes.css';
 @import '../css/mails/mail-filter.css';
 @import '../css/pages/app-home.css';
+@import '../css/pages/about.css';
 
 body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #f6f2f0;
+    height: 100vh;
 }
+
+#root{
+    height: 100%;
+}
+
 
 

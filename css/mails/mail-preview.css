@@ -2,7 +2,7 @@
 .false {
   font-weight: bold;
 }
-  .from .false {
+.from .false {
   font-weight: bold;
 }
 
@@ -16,8 +16,11 @@
 
 .from {
   font-size: 0.7rem;
-  margin-right: 100px;
-  width:1.2rem
+  /* margin-right: 100px; */
+  /* width:1.2rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .subject {
   font-size: 1rem;
@@ -26,15 +29,23 @@
     width:1rem;
 }
 
+
 .body{
-    font-size: 0.8rem;
-    width: 50px;
+display: none;
 }
-.mail-preview-text{
-    display: flex;
-    justify-content: flex-start;
-    align-items: baseline;
-}
+ .mail-preview-text{
+     display: flex; 
+     gap:30px;
+    /* justify-content: flex-start; */
+    /* align-items: baseline; */
+ } 
+
+ .mail-preview-text .mail-txt-body{
+  display: flex; 
+   margin-left: 10px;
+} 
+
+
 
 .filterAndPreview {
   display: flex;
@@ -46,7 +57,7 @@
   margin-left: 3rem;
 }
 .subject-mail {
-    width:50rem;
+    /* width:50rem; */
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -59,4 +70,14 @@
     justify-content: flex-end;
     display: flex;
     justify-content: flex-end;
+}
+
+@media (min-width:450px) {
+  .body{
+    display: inline;
+    font-size: 0.8rem;
+    margin-left: 30px;
+}
+
+
 }
