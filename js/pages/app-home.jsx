@@ -1,5 +1,5 @@
 
-import HomePagePic from '../../assets/img/homePage.png'
+import HomePagePic from '../../assets/img/homeImg.png'
 
 
 export class AppHome extends React.Component {
