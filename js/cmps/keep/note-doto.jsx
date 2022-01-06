@@ -58,7 +58,7 @@ export class NoteToDo extends React.Component {
         const { note } = this.props
         return (
             <div className="note-todo" style={noteStyle}>
-                <img onClick={this.changePin} src={note.isPinned ? '../assets/img/thumbtack.svg' : '../assets/img/thumbtack-clear.svg'} alt="" />
+                <img onClick={this.changePin} src={note.isPinned ? './assets/img/thumbtack.svg' : './assets/img/thumbtack-clear.svg'} alt="" />
                 <h3>{note.info.label}</h3>
                 <ul>{todos.map((todo, idx) => <li className={todo.isDone ? 'line-through' : ''} key={idx} onClick={() => this.ontoglee(idx)}>{todo.txt}</li>)}</ul>
                 <section className="note-nav">
