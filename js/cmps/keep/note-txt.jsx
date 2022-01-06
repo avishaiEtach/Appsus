@@ -50,7 +50,7 @@ export class NoteTxt extends React.Component {
         const { noteStyle, isActive, note } = this.state
         return (
             <div className="note-txt" style={noteStyle}>
-                <img onClick={this.changePin} src={note.isPinned ? '../assets/img/thumbtack.svg' : '../assets/img/thumbtack-clear.svg'} alt="" />
+                <img onClick={this.changePin} src={note.isPinned ? './assets/img/thumbtack.svg' : './assets/img/thumbtack-clear.svg'} alt="" />
                 <p>{note.info.txt}</p>
                 <section className="note-nav">
                     <button className="far fa-trash-alt" onClick={this.onDelete}></button>
