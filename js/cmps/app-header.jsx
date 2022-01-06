@@ -5,7 +5,7 @@ class _AppHeader extends React.Component {
 
   render() {
     return <section className="app-header-static">
-      <h1> <img src="../assets/img/icon.png" alt="" /> apsus</h1>
+      <h1> <img src="./assets/img/icon.png" alt="" /> apsus</h1>
       <nav>
         <NavLink exact to="/" >Home</NavLink>
         < NavLink to="/mail/type/inbox" >Mail</NavLink>
