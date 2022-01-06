@@ -8,7 +8,7 @@ export class AppHome extends React.Component {
     return (
       <section>
         <h1>WELCOME</h1>
-        <img src='./assets/img/homeImg.png' alt="" />
+        <img src='../assets/img/homeImg.png' alt="" />
       </section>
     )
 
