@@ -1,4 +1,7 @@
 
+import HomePagePic from '../../assets/img/homePage.png'
+
+
 export class AppHome extends React.Component {
 
 
@@ -6,7 +9,7 @@ export class AppHome extends React.Component {
     return (
       <section>
         <h1>WELCOME</h1>
-        <img src="../../../assets/img/homePage.png" alt="" />
+        <img src={HomePagePic} alt="" />
       </section>
     )
 

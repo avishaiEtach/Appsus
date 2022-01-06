@@ -185,7 +185,6 @@ function _CreateTrashMails() {
 
 
 function saveToStorage(type) {
-    debugger;
     switch (type) {
         case 'sentmails':
             storageService.saveToStorage(SENT_MAILES, gSentMails)
@@ -225,7 +224,6 @@ function deleteMail(typeShow,id){
 }
 
 function deleteAllSelected(typeShow){
-    debugger;
     let mails;
     switch (typeShow) {
         case 'inbox':
