@@ -48,7 +48,7 @@ export class NoteImg extends React.Component {
         const { note } = this.props
         return (
             <div className="note-img" style={noteStyle}>
-                <img className="pinnedImg" onClick={this.changePin} src={note.isPinned ? '../assets/img/thumbtack.svg' : '../assets/img/thumbtack-clear.svg'} alt="" />
+                <img className="pinnedImg" onClick={this.changePin} src={note.isPinned ? './assets/img/thumbtack.svg' : './assets/img/thumbtack-clear.svg'} alt="" />
                 <section>
                     <img src={note.info.url} />
                 </section>
